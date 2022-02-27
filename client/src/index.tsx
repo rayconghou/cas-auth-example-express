@@ -1,15 +1,24 @@
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import UserContext, { defaultUserContext } from "./contexts/UserContext";
+import UserContextProvider from "./providers/UserContextProvider";
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserContext.Provider value={defaultUserContext}>
-      <App />
-    </UserContext.Provider>
+    <UserContextProvider>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </UserContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

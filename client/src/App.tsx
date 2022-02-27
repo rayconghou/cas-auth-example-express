@@ -1,43 +1,36 @@
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext } from "react";
+
 import SignInButton from "./components/SignInButton";
 import SWELogo from "./assets/logo.png";
-
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+import UserContext from "./contexts/UserContext";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const { isAuthenticated } = useContext(UserContext);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container>
-        <Description>
-          <Logo src={SWELogo} alt="swe-logo" />
-          <TitleText>CAS Auth Example</TitleText>
-          <Text>
-            This is the official CAS authentication example for Software
-            Engineering at Yale University (CPSC 439/539). CAS authentication
-            allows you to authenticate against Yale's auth server. This allows
-            you to have users sign in with their netid's.
-          </Text>
-        </Description>
-        <AuthContainer>
-          {isAuthenticated ? (
-            <></>
-          ) : (
-            <>
-              <Text>You are not authenticated 🤔</Text>
-              <SignInButton />
-            </>
-          )}
-        </AuthContainer>
-      </Container>
-    </ThemeProvider>
+    <Container>
+      <Description>
+        <Logo src={SWELogo} alt="swe-logo" />
+        <TitleText>CAS Auth Example</TitleText>
+        <Text>
+          This is the official CAS authentication example for Software
+          Engineering at Yale University (CPSC 439/539). CAS authentication
+          allows you to authenticate against Yale's auth server. This allows you
+          to have users sign in with their netid's.
+        </Text>
+      </Description>
+      <AuthContainer>
+        {isAuthenticated ? (
+          <></>
+        ) : (
+          <>
+            <Text>You are not authenticated 🤔</Text>
+            <SignInButton />
+          </>
+        )}
+      </AuthContainer>
+    </Container>
   );
 };
 
