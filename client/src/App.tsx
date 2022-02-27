@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 
 import SignInButton from "./components/SignInButton";
+import SignOutButton from "./components/SignOutButton";
 import SWELogo from "./assets/logo.png";
 import UserContext from "./contexts/UserContext";
 
@@ -24,6 +25,7 @@ const App = () => {
         {isAuthenticated ? (
           <>
             <Text>You are authenticated! 😊</Text>
+            <SignOutButton />
           </>
         ) : (
           <>

@@ -1,14 +1,27 @@
 import Button from "@mui/material/Button";
-import axios from "../utils/axios";
+import { useContext } from "react";
 
-const SignOutButton = () => (
-  <Button
-    variant="contained"
-    onClick={() => axios.get("/logout")}
-    href={`http://localhost:4000/cas?redirect=${window.location.origin}`}
-  >
-    Sign Out
-  </Button>
-);
+import axios from "../utils/axios";
+import UserContext from "../contexts/UserContext";
+
+const SignOutButton = () => {
+  const { clearContext } = useContext(UserContext);
+  return (
+    <Button
+      variant="contained"
+      color="error"
+      onClick={() =>
+        axios.get<{ success: boolean }>("/logout").then(({ data }) => {
+          if (data.success) {
+            clearContext();
+          }
+        })
+      }
+      href={`http://localhost:4000/cas?redirect=${window.location.origin}`}
+    >
+      Sign Out
+    </Button>
+  );
+};
 
 export default SignOutButton;

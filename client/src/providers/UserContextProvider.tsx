@@ -10,7 +10,7 @@ const UserContextProvider: FC = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [user, setUser] = useState<User>();
 
-  useEffect(() => {
+  const checkContext = useCallback(() => {
     axios
       .get<{ auth: boolean; user?: User }>("/check")
       .then(({ data }) => {
@@ -25,7 +25,6 @@ const UserContextProvider: FC = ({ children }) => {
           icon: "warning",
         })
       );
-
     setLoading(false);
   }, []);
 
@@ -34,9 +33,13 @@ const UserContextProvider: FC = ({ children }) => {
     setUser(undefined);
   }, []);
 
+  useEffect(() => {
+    checkContext();
+  }, [checkContext]);
+
   return (
     <UserContext.Provider
-      value={{ loading, isAuthenticated, user, clearContext }}
+      value={{ loading, isAuthenticated, user, checkContext, clearContext }}
     >
       {children}
     </UserContext.Provider>
