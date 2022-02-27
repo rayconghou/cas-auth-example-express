@@ -18,3 +18,7 @@ Once you installed all the stuff above, follow these directions:
 3. Open another terminal window and run `yarn dev:client`. This wll serve the client on port `3000`.
 
 After completing the steps above, you should be able to go to `http://localhost:3000` on your browser and see the app.
+
+## Acknowledgements
+
+Quick thanks to the developers of [CourseTable](https://www.coursetable.com/) for making their fork of [`sadne/passport-cas`](https://github.com/sadne/passport-cas) open-source! If you want to see Yale CAS auth implementation in a production app, check out the [CourseTable monorepo](https://github.com/coursetable/coursetable).
