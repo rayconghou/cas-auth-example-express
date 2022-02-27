@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import swal from "sweetalert";
 
 import axios from "../utils/axios";
@@ -29,8 +29,15 @@ const UserContextProvider: FC = ({ children }) => {
     setLoading(false);
   }, []);
 
+  const clearContext = useCallback(() => {
+    setIsAuthenticated(false);
+    setUser(undefined);
+  }, []);
+
   return (
-    <UserContext.Provider value={{ loading, isAuthenticated, user }}>
+    <UserContext.Provider
+      value={{ loading, isAuthenticated, user, clearContext }}
+    >
       {children}
     </UserContext.Provider>
   );

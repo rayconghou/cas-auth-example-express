@@ -5,10 +5,12 @@ import { User } from "../types";
 export const defaultUserContext = {
   loading: true,
   isAuthenticated: false,
+  clearContext: () => {},
 };
 
 export default createContext<{
   loading: boolean;
   isAuthenticated: boolean;
   user?: User;
+  clearContext: () => void;
 }>(defaultUserContext);

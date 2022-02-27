@@ -71,4 +71,9 @@ export default (app: express.Express) => {
   });
 
   app.get("/cas", casLogin);
+
+  app.get("/logout", (req, res) => {
+    req.logOut();
+    return res.json({ success: true });
+  });
 };
