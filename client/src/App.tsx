@@ -22,7 +22,9 @@ const App = () => {
       </Description>
       <AuthContainer>
         {isAuthenticated ? (
-          <></>
+          <>
+            <Text>You are authenticated! 😊</Text>
+          </>
         ) : (
           <>
             <Text>You are not authenticated 🤔</Text>
