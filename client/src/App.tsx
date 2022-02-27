@@ -32,7 +32,7 @@ const App = () => {
           ) : (
             <>
               <Text>You are not authenticated 🤔</Text>
-              <SignInButton setIsAuthenticated={setIsAuthenticated} />
+              <SignInButton />
             </>
           )}
         </AuthContainer>

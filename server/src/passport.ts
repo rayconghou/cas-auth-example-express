@@ -53,7 +53,7 @@ const casLogin = function (
         return res.redirect(req.query.redirect as string);
       }
 
-      return res.redirect("/check?nothing");
+      return res.redirect("/check");
     });
   })(req, res, next);
 };
