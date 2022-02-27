@@ -6,7 +6,6 @@ export const defaultUserContext = {
   loading: true,
   isAuthenticated: false,
   checkContext: () => {},
-  clearContext: () => {},
 };
 
 export default createContext<{
@@ -14,5 +13,4 @@ export default createContext<{
   isAuthenticated: boolean;
   user?: User;
   checkContext: () => void;
-  clearContext: () => void;
 }>(defaultUserContext);

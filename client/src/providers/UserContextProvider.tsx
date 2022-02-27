@@ -17,6 +17,9 @@ const UserContextProvider: FC = ({ children }) => {
         if (data.auth) {
           setIsAuthenticated(true);
           setUser(data.user);
+        } else {
+          setIsAuthenticated(false);
+          setUser(undefined);
         }
       })
       .catch(() =>
@@ -28,18 +31,13 @@ const UserContextProvider: FC = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const clearContext = useCallback(() => {
-    setIsAuthenticated(false);
-    setUser(undefined);
-  }, []);
-
   useEffect(() => {
     checkContext();
   }, [checkContext]);
 
   return (
     <UserContext.Provider
-      value={{ loading, isAuthenticated, user, checkContext, clearContext }}
+      value={{ loading, isAuthenticated, user, checkContext }}
     >
       {children}
     </UserContext.Provider>
