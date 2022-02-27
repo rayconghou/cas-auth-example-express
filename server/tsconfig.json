@@ -7,7 +7,7 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "outDir": "build",
-    "types": ["jest", "node"]
+    "types": ["node"]
   },
   "exclude": ["node_modules/**/*", "build/**/*"]
 }
