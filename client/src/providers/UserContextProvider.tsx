@@ -6,7 +6,7 @@ import UserContext from "../contexts/UserContext";
 import { User } from "../types";
 
 const UserContextProvider: FC = ({ children }) => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [user, setUser] = useState<User>();
 
@@ -28,7 +28,7 @@ const UserContextProvider: FC = ({ children }) => {
           icon: "warning",
         })
       );
-    setLoading(false);
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const UserContextProvider: FC = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ loading, isAuthenticated, user, checkContext }}
+      value={{ isLoading, isAuthenticated, user, checkContext }}
     >
       {children}
     </UserContext.Provider>

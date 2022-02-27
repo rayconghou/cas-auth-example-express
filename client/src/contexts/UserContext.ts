@@ -3,13 +3,13 @@ import { createContext } from "react";
 import { User } from "../types";
 
 export const defaultUserContext = {
-  loading: true,
+  isLoading: true,
   isAuthenticated: false,
   checkContext: () => {},
 };
 
 export default createContext<{
-  loading: boolean;
+  isLoading: boolean;
   isAuthenticated: boolean;
   user?: User;
   checkContext: () => void;

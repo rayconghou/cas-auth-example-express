@@ -1,3 +1,4 @@
+import PulseLoader from "react-spinners/PulseLoader";
 import styled from "styled-components";
 import { useContext } from "react";
 
@@ -7,7 +8,7 @@ import SWELogo from "./assets/logo.png";
 import UserContext from "./contexts/UserContext";
 
 const App = () => {
-  const { isAuthenticated } = useContext(UserContext);
+  const { isLoading, isAuthenticated } = useContext(UserContext);
 
   return (
     <Container>
@@ -22,7 +23,9 @@ const App = () => {
         </Text>
       </Description>
       <AuthContainer>
-        {isAuthenticated ? (
+        {isLoading ? (
+          <PulseLoader color="#66CCFF" size={10} />
+        ) : isAuthenticated ? (
           <>
             <Text>You are authenticated! 😊</Text>
             <SignOutButton />
