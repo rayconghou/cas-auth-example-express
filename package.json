@@ -2,7 +2,7 @@
   "name": "cas-auth-example-ts",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:yale-swe/cas-auth-example-ts.git",
+  "repository": "git@github.com:yale-swe/cas-auth-example-express.git",
   "author": "wu-json",
   "license": "MIT",
   "scripts": {
