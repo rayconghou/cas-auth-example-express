@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "16.14"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:clean": "rm -rf build",
+    "dev": "NODE_ENV=dev nodemon src/index.ts",
+    "start": "node build/index.js",
+    "test": "NODE_ENV=test jest --config ./src/testUtils/jest.config.js"
+  },
   "dependencies": {
     "express": "^4.17.3",
     "passport": "^0.5.2",
