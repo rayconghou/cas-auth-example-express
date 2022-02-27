@@ -1,5 +1,5 @@
 {
-  "name": "cas-auth-example-ts",
+  "name": "cas-auth-example-express",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:yale-swe/cas-auth-example-express.git",
