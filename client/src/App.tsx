@@ -1,20 +1,29 @@
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
 import SWELogo from "./assets/logo.png";
 
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
 const App = () => {
   return (
-    <Container>
-      <Description>
-        <Logo src={SWELogo} alt="swe-logo" />
-        <TitleText>CAS Auth Example</TitleText>
-        <Text>
-          This is the official CAS authentication example for Software
-          Engineering at Yale University (CPSC 439/539). CAS authentication
-          allows you to authenticate against Yale's auth server. This allows you
-          to have users sign in with their netid's.
-        </Text>
-      </Description>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Description>
+          <Logo src={SWELogo} alt="swe-logo" />
+          <TitleText>CAS Auth Example</TitleText>
+          <Text>
+            This is the official CAS authentication example for Software
+            Engineering at Yale University (CPSC 439/539). CAS authentication
+            allows you to authenticate against Yale's auth server. This allows
+            you to have users sign in with their netid's.
+          </Text>
+        </Description>
+      </Container>
+    </ThemeProvider>
   );
 };
 
