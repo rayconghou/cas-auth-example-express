@@ -1,5 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
+import { useState } from "react";
+import SignInButton from "./components/SignInButton";
 import SWELogo from "./assets/logo.png";
 
 const theme = createTheme({
@@ -9,6 +11,8 @@ const theme = createTheme({
 });
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
   return (
     <ThemeProvider theme={theme}>
       <Container>
@@ -22,6 +26,16 @@ const App = () => {
             you to have users sign in with their netid's.
           </Text>
         </Description>
+        <AuthContainer>
+          {isAuthenticated ? (
+            <></>
+          ) : (
+            <>
+              <Text>You are not authenticated 🤔</Text>
+              <SignInButton setIsAuthenticated={setIsAuthenticated} />
+            </>
+          )}
+        </AuthContainer>
       </Container>
     </ThemeProvider>
   );
@@ -58,6 +72,14 @@ const TitleText = styled.h1`
 
 const Text = styled.p`
   color: #ffffff;
+`;
+
+const AuthContainer = styled.div`
+  margin-top: 60px;
+  width: 600px;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 `;
 
 export default App;
